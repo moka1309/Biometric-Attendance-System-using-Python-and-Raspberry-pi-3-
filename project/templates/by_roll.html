@@ -1,0 +1,73 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <p class="h2" style="color:rgb(213, 216, 190);">Attendance By Date</p>
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col-3">
+        <h5 class="text-info">Roll Number : </h5>
+      </div>
+      <div class="col-9">
+        <h5 class="text-info">{{id}}</h5><br>
+      </div>
+      {% if val != 0 %}
+        <div class="col-3">
+          <h5 class="text-info">Student Name : </h5>
+        </div>
+        <div class="col-9">
+          <h5 class="text-uppercase text-info">{{name}}</h5><br>
+        </div>
+        <div class="col-12">
+          <h4 class="text-white"><u>Attendance Details</u></h4><br>
+        </div>
+        <div class="col-3">
+          <h5 class="text-info">Number of Days Present : </h5>
+        </div>
+        <div class="col-9">
+          <h5 class="text-info">{{present_days}}</h5><br>
+        </div>
+        <div class="col-3">
+          <h5 class="text-info">Total Work Days : </h5>
+        </div>
+        <div class="col-9">
+          <div class="input-group mb-3">
+            <input type="hidden" name="attended" value={{present_days}} id="present">
+            <input type="text" class="form-control" placeholder="Total Work days" aria-label="Total Work days" id="totnum">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" onclick="calculate()" type="button">Calculate</button>
+            </div>
+          </div>
+          <script type="text/JavaScript">
+                  function calculate(){
+                      var cal = ((document.getElementById("present").value)/(document.getElementById("totnum").value))*100;
+                      display_cal.innerHTML= cal.toFixed(2)+" %";
+                  }
+          </script>
+        </div>
+        <div class="col-3">
+          <br><h5 class="text-info text-uppercase">Attendance Percent :</h5>
+        </div>
+        <div class="col-9">
+          <br><h4 class="text-success"><span id = "display_cal"></span> </h4>
+        </div>
+
+        <div class="container">
+          <button type="button" class="btn btn-secondary btn-sm" name="print" onclick="myPrint()" id ="this_button">Print</button>
+        </div>
+      {% else %}
+        <div class="col-md-12">
+          <h3 style="color:#b7d7e8" class="text-center">No Data Found! Please Give a Proper Details.</h3>
+        </div>
+        <div class="col-md-12">
+          <h3 style="color:#b7d7e8" class="text-center">If any problems, please contact ADMIN</h3>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  <script>
+    function myPrint() {
+      window.print();
+    }
+  </script>
+{% endblock %}

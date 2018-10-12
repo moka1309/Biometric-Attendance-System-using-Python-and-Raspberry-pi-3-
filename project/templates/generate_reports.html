@@ -1,0 +1,131 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="container">
+  <div class="row">
+      <div class="jumbotron col-md-4 border border-secondary">
+        <h3 class="h3">By Date</h3>
+          <form  method="post" action="/by_date" id="needs-validation-0" novalidate>
+              <div class="form-group">
+                <label class="col-form-label text-success" for="s_date">Start Date</label>
+                <input class="form-control" id="s_date" type="date" name="start_date" required/>
+                <div class="invalid-feedback">
+                  Please provide a valid Date.
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-form-label text-danger" for="e_date">End Date</label>
+                <input class="form-control" id="e_date" type="date" name="end_date" required/>
+                <div class="invalid-feedback">
+                  Please provide a valid Date.
+                </div>
+              </div>
+            <br>
+            <div >
+              <button type="submit" class="btn btn-dark" >Submit</button>
+            </div>
+          </form>
+          <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function() {
+              'use strict';
+
+              window.addEventListener('load', function() {
+                var form = document.getElementById('needs-validation-0');
+                form.addEventListener('submit', function(event) {
+                  if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                  }
+                  form.classList.add('was-validated');
+                }, false);
+              }, false);
+            })();
+          </script>
+      </div>
+    <!-- By Roll Number-->
+      <div class="jumbotron col-md-4 border border-secondary">
+        <h3 class="h3">By Roll Number</h3>
+        <form class="form-inline justify-content-center" method="post" action="/by_roll" id="needs-validation-1" novalidate>
+          <label class="sr-only" for="inlineFormInputName2">Roll Number</label>
+          <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputName2" name="idnum" placeholder="Roll Number" required>
+          <button type="submit" class="btn btn-dark">Submit</button>
+          <div class="invalid-feedback">
+            Please provide a valid Roll Number.
+          </div>
+        </form>
+        <script>
+          // Example starter JavaScript for disabling form submissions if there are invalid fields
+          (function() {
+            'use strict';
+
+            window.addEventListener('load', function() {
+              var form = document.getElementById('needs-validation-1');
+              form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+              }, false);
+            }, false);
+          })();
+        </script>
+      </div>
+    <!-- By Group-->
+      <div class="jumbotron col-md-4 border border-dark">
+        <h3 class="h3">By Group</h3>
+          <form  method="post" action="by_group" id="needs-validation-2" novalidate>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="dep_res" class="text-dark">Dept.</label>
+                <select id="dep_res" class="form-control border border-primary" name="dept_res" required>
+                  <option selected>CSE</option>
+                  <option>EEE</option>
+                  <option>ECE</option>
+                  <option>Mechanical</option>
+                  <option>Civil</option>
+                  <option>Chemical</option>
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="grp_res" class="text-dark">Group</label>
+                <select id="grp_res" class="form-control border border-primary" name="grup_res" required>
+                  <option selected>MCA</option>
+                  <option>BTech</option>
+                  <option>MTech</option>
+                </select>
+              </div>
+              <div class="form-group col-md-12">
+                <label class="sr-only" for="inlineFormInputName3">Total Work days</label>
+                <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputName3" name="days" placeholder="Total work days" required>
+                <div class="invalid-feedback">
+                  Please Give Total Work Days.
+                </div>
+              </div>
+              <div>
+      				  <button type="submit" class="btn btn-dark">Submit</button>
+      			  </div>
+			      </div>
+
+          </form>
+          <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function() {
+              'use strict';
+
+              window.addEventListener('load', function() {
+                var form = document.getElementById('needs-validation-2');
+                form.addEventListener('submit', function(event) {
+                  if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                  }
+                  form.classList.add('was-validated');
+                }, false);
+              }, false);
+            })();
+          </script>
+      </div>
+  </div>
+</div>
+{% endblock %}

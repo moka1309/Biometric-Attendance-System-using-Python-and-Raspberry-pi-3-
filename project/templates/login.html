@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Biometric</title>
+    <link rel="stylesheet" href="..\static\css\bootstrap.css">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand ml-md-4 mr-auto" href="./index">
+        <img src="..\static\images\jntua.png" alt="LOGO" width="35" height="35" class="d-inline-block align-top"> JNTUA
+      </a>
+      <botton class="btn btn-outline-danger btn-sm">
+        <a class="text-danger alert-link justify-content-end" href="{{ url_for('login') }}" style="text-decoration-line: None">Login</a>
+      </botton>
+    </nav>
+    <!-- Navbar End-->
+    <script type="text/javascript" src="..\static\js\bootstrap.min.js"></script>
+    <script type="text/javascript" src="..\static\js\jquery-3.3.1.min.js"></script>
+
+  </head>
+
+<body>
+  <h1 class="text-center display-4 border border-primary border-top-0 text-primary">Please Login</h1>
+
+  {% if error %}
+  <div class="container">
+    <div class="row">
+      <div class="alert alert-warning alert-dismissible .col-md-6 .offset-md-6 fade show" role="alert">
+        <strong class="text-danger text-center">{{ error }}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  <div class="container">
+    <div class="row">
+      <div class="jumbotron bg-light col-md-6 offset-md-3">
+          <form  method="post" action="/login" id="needs-validation" novalidate>
+              <div class="form-group">
+                <label class="col-form-label" for="uname">Username:</label>
+                <input class="form-control" id="uname" type="text" name="username" placeholder="Username" required/>
+                <div class="invalid-feedback">
+                  Please provide a valid Username.
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-form-label" for="passwd">Password:</label>
+                <input class="form-control" id="passwd" type="password" name="password" placeholder="Password" required/>
+                <div class="invalid-feedback">
+                  Please provide a valid Password.
+                </div>
+              </div>
+            <br>
+            <div >
+              <button type="submit" class="btn btn-outline-primary" >Submit</button>
+            </div>
+          </form>
+          <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function() {
+              'use strict';
+
+              window.addEventListener('load', function() {
+                var form = document.getElementById('needs-validation');
+                form.addEventListener('submit', function(event) {
+                  if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                  }
+                  form.classList.add('was-validated');
+                }, false);
+              }, false);
+            })();
+          </script>
+      </div>
+    </div>
+  </div>
+<script type="text/javascript" src="..\static\js\bootstrap.min.js"></script>
+<script type="text/javascript" src="..\static\js\jquery-3.3.1.min.js"></script>
+</body>
+</html>

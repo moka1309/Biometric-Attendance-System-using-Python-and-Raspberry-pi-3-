@@ -1,0 +1,84 @@
+{% extends 'layout.html' %}
+{% block body %}
+  <p class="h2" style="color:rgb(213, 216, 190);">Attendance By Date</p>
+  <br>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="input-group">
+        <span class="input-group-btn">
+          <button class="btn btn-secondary" type="button">Go!</button>
+        </span>
+        <input type="text" id="myInput" onkeyup="myFunction()" class="form-control" placeholder="Search for...">
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class=“container”>
+    <div class=“row”>
+      <div>
+        {% if val_len == 0 %}
+          <div class="col-md-12">
+            <h3 style="color:#b7d7e8">No Data Found! Please try with another Dates</h3>
+          </div>
+        {% else %}
+          <table class="table table-dark" id="myTable">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Roll Number</th>
+                <th scope="col">Date</th>
+                <th scope="col">Morning In</th>
+                <th scope="col">Morning Out</th>
+                <th scope="col">Afternoon In</th>
+                <th scope="col">Afternoon Out</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              {% for row in allValues %}
+              <tr>
+                <th scope="row">{{allValues.index(row)+1}}</th>
+                <td>{{row[0]}}</td>
+                <td>{{row[1]}}</td>
+                <td>{{row[2]}}</td>
+                <td>{{row[3]}}</td>
+                <td>{{row[4]}}</td>
+                <td>{{row[5]}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <div class="container">
+            <button type="button" class="btn btn-secondary btn-sm" name="print" onclick="myPrint()" id ="this_button">Print</button>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <script>
+    function myPrint() {
+      window.print();
+    }
+    function myFunction() {
+      // Declare variables
+      var input, filter, table, tr, td, i;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+  </script>
+
+{% endblock %}

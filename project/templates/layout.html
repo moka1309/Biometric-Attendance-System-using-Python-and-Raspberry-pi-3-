@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Biometric</title>
+    <link rel="stylesheet" href="..\static\css\bootstrap.css">
+    <script type="text/javascript" src="..\static\js\bootstrap.min.js"></script>
+    <script type="text/javascript" src="..\static\js\jquery-3.3.1.min.js"></script>
+  </head>
+  <body style="background-color: black">
+    <div>
+      <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand ml-md-4 mr-md-4" href="./index">
+          <img src="..\static\images\jntua.png" alt="LOGO" width="35" height="35" class="d-inline-block align-top"> JNTUA
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Enroll
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item " href="./enroll_student">Enroll New Student</a>
+                <a class="dropdown-item" href="#">Teaching Staff</a>
+                <a class="dropdown-item" href="#">Non-Teaching Staff</a>
+                <a class="dropdown-item" href="#">Out Sourceing</a>
+              </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./generate_reports">Reports</a>
+            </li>
+          </ul>
+          <botton class="btn btn-outline-danger btn-sm">
+            <a class="text-danger alert-link" href="{{ url_for('logout') }}" style="text-decoration-line: None">Logout</a>
+          </botton>
+        </div>
+      </nav>
+
+      <!-- Navbar End-->
+
+    </div>
+    <br>
+
+	   <div class="container">
+       {% block body %}
+
+       {% endblock %}
+     </div>
+
+
+    <script type="text/javascript" src="..\static\js\bootstrap.min.js"></script>
+    <script type="text/javascript" src="..\static\js\jquery-3.3.1.min.js"></script>
+  </body>
+
+</html>

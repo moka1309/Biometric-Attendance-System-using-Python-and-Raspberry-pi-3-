@@ -1,0 +1,96 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+<div class="container">
+
+  <div class="jumbotron bg-light">
+    <h1 class="text-dark h3">Enter Details</h1>
+    <br>
+    <form  method="post" action="/save_enroll" id="needs-validation" novalidate>
+
+      <div class="form-row">
+
+        <div class="form-group col-md-6">
+          <label for="firstn" class="text-primary">First Name</label>
+          <input type="text" class="form-control" id="firstn" name="firstname"  placeholder="Ex: Mohan Kumar" required/>
+          <div class="invalid-feedback">
+            Please provide a valid Name.
+          </div>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="lastn" class="text-primary">Last Name</label>
+          <input type="text" class="form-control" id="lastn" name="lastname" placeholder="Surename" required/>
+          <div class="invalid-feedback">
+            Please provide your Lastname.
+          </div>
+        </div>
+        <br/>
+        <div class="form-group col-md-6">
+          <label for="rollnum" class="text-primary">Roll Number</label>
+          <input type="text" class="form-control" id="rollnum" name="roll" placeholder="Ex: 15001F0037" required />
+          <div class="invalid-feedback">
+            Please provide a valid ID number.
+          </div>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="dep" class="text-primary">Dept.</label>
+          <select id="dep" class="form-control" name="dept" required>
+            <option selected>CSE</option>
+            <option>EEE</option>
+            <option>ECE</option>
+            <option>Mechanical</option>
+            <option>Civil</option>
+            <option>Chemical</option>
+          </select>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="grp" class="text-primary">Group</label>
+          <select id="grp" class="form-control" name="grup" required>
+            <option selected>MCA</option>
+            <option>B.Tech</option>
+            <option>M.tech</option>
+          </select>
+        </div>
+
+        <br/>
+        <div class="form-group col-md-6">
+          <label class="text-primary" for="inputEmail">Email</label>
+          <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Email" required>
+          <div class="invalid-feedback">
+            Please provide an email.
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label class="text-primary" for="inputmobile">Mobile</label>
+          <input type="number" size="10" class="form-control" id="inputmobile" name="mobnum" placeholder="Ex: 9876543210" required>
+          <div class="invalid-feedback">
+            Please provide Mobile Number.
+      </div>
+        </div>
+      </div>
+      <button class="btn btn-dark" type="submit">Submit</button>
+
+    </form>
+    <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+      'use strict';
+
+      window.addEventListener('load', function() {
+        var form = document.getElementById('needs-validation');
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      }, false);
+    })();
+    </script>
+  </div>
+
+</div>
+
+{% endblock %}
