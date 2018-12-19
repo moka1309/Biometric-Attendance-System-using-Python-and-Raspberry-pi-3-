@@ -1,0 +1,28 @@
+	To RUN project
+===========================
+
+1.Go to "attendance" folder.
+	/home/pi/attendance
+
+2. Open terminal for attendance folder.
+
+3. Run test.py in terminal
+	> python3 test.py 
+		
+	To check attendance details
+=================================
+1. Open chromium browser
+
+2. Type localhost or 127.0.0.1 or 127.0.0.1:5000
+
+	Others Details
+================================
+
+===> attendance folder consists of attendance file('test.py'),database file(app.db) and other supported files.
+===> project folder consists of all web based files.
+
+Read document for any other assistance. 
+
+If you need any help ping me at "moka1309@gmail.com"
+
+Thank You.
