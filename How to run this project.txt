@@ -21,8 +21,6 @@
 ===> attendance folder consists of attendance file('test.py'),database file(app.db) and other supported files.
 ===> project folder consists of all web based files.
 
-Read document for any other assistance. 
-
-If you need any help ping me at "moka1309@gmail.com"
+Read document for any other assistance.
 
 Thank You.
